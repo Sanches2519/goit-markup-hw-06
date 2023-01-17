@@ -255,7 +255,7 @@ ul {
   transition: opacity var(--animation), fill var(--animation);
 }
 .button-close-black:hover,
-.button-close-black:focus{
+.button-close-black:focus {
   fill: var(--secondary-color);
 }
 .backdrop {
@@ -326,43 +326,118 @@ ul {
 .field-input-icon {
   position: relative;
 }
-.field-input-icon:focus-within > .field-input{
-  border-color: 1px solid red;
-}
+
 .field-input {
-  display: inline-block;
   min-width: 448px;
   min-height: 40px;
   padding-left: 42px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-}
-.field-input:focus-within{
-  border-color: 1px solid red;
+  transition: border var(--animation), box-shadow var(--animation);
 }
 
-.field-icon{
+.field-input:focus {
+  outline: 0;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.field-icon {
   position: absolute;
   top: 50%;
   left: 15px;
   transform: translateY(-50%);
+  transition: fill var(--animation);
+}
+
+.field-input:focus-within + .field-icon {
+  fill: var(--secondary-color);
+}
+.modal-field-coment {
+  margin-bottom: 20px;
+  text-align: left;
 }
 .field-coment {
-  display: block;
   resize: none;
+  padding: 12px 16px;
   min-width: 448px;
   height: 120px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
 }
 .field-coment::placeholder {
-  padding: 12px 16px;
   font-size: 12px;
   line-height: 1.16;
   letter-spacing: 0.01em;
 
   color: rgba(117, 117, 117, 0.5);
 }
+.field-coment:focus {
+  outline: 0;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.input-checkbox {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+.field-checkbox {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.icon-license {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--main-text-color);
+  border-radius: 2px;
+  transition: background-color var(--animation),
+    background-image var(--animation), background-size var(--animation),
+    background-origin var(--animation), border-color var(--animation);
+}
+.input-checkbox:checked + .icon-license {
+  background-color: var(--secondary-color);
+  background-image: url(..//images/icon\ check.svg);
+  background-size: contain;
+  background-origin: border-box;
+  border-color: var(--secondary-color);
+}
+.input-checkbox:not(:checked):focus + .icon-license {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 2px;
+}
+.label-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.71;
+  cursor: pointer;
+}
+.text-checkbox {
+  display: inline-block;
+  margin-left: 9px;
+  color: var(--secondary-text-color);
+}
+.link-license {
+  color: var(--secondary-color);
+  margin-left: 7px;
+}
+
 .modal-button {
   text-align: center;
   cursor: pointer;
@@ -376,6 +451,11 @@ ul {
   background-color: var(--secondary-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  transition: background-color var(--animation);
+}
+.modal-button:hover,
+.modal-button:focus {
+  background-color: var(--background-main-button);
 }
 /* особливості */
 .hidden-list {
